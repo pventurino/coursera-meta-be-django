@@ -28,3 +28,7 @@ def menu(request):
         "menu": menu_data
     }
     return render(request, 'menu.html', main_data)
+
+def display_menu_item(request, pk):
+    menu_item = Menu.objects.get(pk=pk) if pk else ''
+    return render(request, 'menu_item.html', {"menu_item" : menu_item})
